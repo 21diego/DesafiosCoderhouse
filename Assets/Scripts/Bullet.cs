@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float speed = 1f;
+    public float speed = 10f;
     public Vector3 direction;
     public int damage;
     private Vector3 rotation;
+    public float liveTime = 3f;
 
     // Utilizo esta fase como constructor
     void Awake()
@@ -19,7 +20,7 @@ public class Bullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        Invoke("DestroyDelay", liveTime);
     }
 
     // Update is called once per frame
@@ -32,5 +33,11 @@ public class Bullet : MonoBehaviour
     {
         //transform.position += this.direction * this.speed * Time.deltaTime;
         transform.Translate(this.direction * this.speed * Time.deltaTime);
+    }
+
+    private void DestroyDelay()
+    {
+        Debug.Log("DESTROY DELAY");
+        Destroy(gameObject);
     }
 }
