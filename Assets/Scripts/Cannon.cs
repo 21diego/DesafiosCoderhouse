@@ -16,7 +16,9 @@ public class Cannon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        // if (Input.GetKeyDown(KeyCode.Space)){
+        //     BulletPrefab.transform.localScale *=2;
+        // }
     }
 
     private void SpawnBala()
