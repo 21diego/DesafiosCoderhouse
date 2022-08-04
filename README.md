@@ -8,4 +8,4 @@
 |Desafio #3 Instanciacion de balas | 📦 Entregado | ✅ Aprobado|
 |Desafio Complementario Ingenieria reversa | 📦 Entregado | ✅ Aprobado|
 |Desafio #4 Disparos Temporizados | 📦 Entregado | 🕑Pendiente |
-|Desafio #5 Sistema Follow Camara | 🕑Pendiente | 🕑Pendiente |
+|Desafio #5 Sistema Follow Camara | 📦 Entregado | 🕑Pendiente |
