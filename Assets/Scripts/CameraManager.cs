@@ -24,6 +24,11 @@ public class CameraManager : MonoBehaviour
             }
         }
 
+        ChangeCamera();
+    }
+
+    private void ChangeCamera()
+    {
         for (int i = 0; i < cameras.Length; i++)
         {
             if (i == cameraIndex)
@@ -36,4 +41,5 @@ public class CameraManager : MonoBehaviour
             }
         }
     }
+
 }
