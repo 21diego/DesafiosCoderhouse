@@ -22,13 +22,16 @@ public class CameraManager : MonoBehaviour
             {
                 cameraIndex = 0;
             }
+
+            ChangeCamera();
         }
 
-        ChangeCamera();
+        
     }
 
     private void ChangeCamera()
     {
+        Debug.Log("LLAMADA CAMERA");
         for (int i = 0; i < cameras.Length; i++)
         {
             if (i == cameraIndex)
