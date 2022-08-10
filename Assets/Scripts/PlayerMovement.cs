@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float PlayerScale;
-    public float PlayerSpeed;
+    [SerializeField]
+    [Range(1f, 5f)]
+    float PlayerScale;
+
+    [SerializeField]
+    [Range(1f, 5f)]
+    float PlayerSpeed;
     public Vector3 Direccion;
+
+    private float cameraAxisX = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +27,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        RotatePlayer();
+
         if (Input.GetKey(KeyCode.W))
         {
             Move(Vector3.forward);
@@ -44,6 +53,17 @@ public class PlayerMovement : MonoBehaviour
     void Move(Vector3 direction)
     {
         transform.Translate(direction * PlayerSpeed * Time.deltaTime);
+    }
+
+    public void RotatePlayer()
+    {
+        this.cameraAxisX += Input.GetAxis("Mouse X");
+
+        // Armo la nueva rotacion segun el mouse
+        Quaternion newRotation = Quaternion.Euler(0, cameraAxisX, 0);
+
+        // Aplico Lerp para que el movimiento sea gradual
+        transform.rotation = Quaternion.Lerp(transform.rotation, newRotation, 10f * Time.deltaTime);
     }
 
 }
