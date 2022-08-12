@@ -568,14 +568,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 969705469}
-  m_LocalRotation: {x: -0, y: 0.64480317, z: -0, w: 0.7643486}
+  m_LocalRotation: {x: -0, y: -0.74474645, z: -0, w: 0.66734755}
   m_LocalPosition: {x: -3.81, y: 4.85, z: -1.91}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1495014220}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 80.302, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -96.275, z: 0}
 --- !u!1 &1020404995
 GameObject:
   m_ObjectHideFlags: 0
@@ -618,6 +618,7 @@ GameObject:
   - component: {fileID: 1025107159}
   - component: {fileID: 1025107160}
   - component: {fileID: 1025107161}
+  - component: {fileID: 1025107162}
   m_Layer: 0
   m_Name: Portal
   m_TagString: Portal
@@ -672,6 +673,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &1025107162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1025107158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c3a94dd9d3507b4e9ac09bb1113b5b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shrinkSize: 1
 --- !u!4 &1039833939 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8855052669661678444, guid: 2dfbb63c9cdf7504faf4ff26b0581598, type: 3}
