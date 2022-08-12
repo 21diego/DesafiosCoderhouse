@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 Direccion;
 
     private float cameraAxisX = 0f;
+    //Transform child;
 
     // Start is called before the first frame update
     void Start()
@@ -22,38 +23,41 @@ public class PlayerMovement : MonoBehaviour
         this.PlayerSpeed = 5f;
         this.Direccion = new Vector3(0f, 0f, 0f);
         transform.localScale = transform.localScale * this.PlayerScale;
+        //child = transform.Find("MaleCharacter");
     }
 
     // Update is called once per frame
     void Update()
     {
-        RotatePlayer();
+        //RotatePlayer();
 
         if (Input.GetKey(KeyCode.W))
         {
-            Move(Vector3.forward);
+            Move(Vector3.forward, 270f);
         }
 
         if (Input.GetKey(KeyCode.S))
         {
-            Move(Vector3.back);
+            Move(Vector3.back, 90f);
         }
 
         if (Input.GetKey(KeyCode.A))
         {
-            Move(Vector3.left);
+            Move(Vector3.left, 180f);
         }
 
         if (Input.GetKey(KeyCode.D))
         {
-            Move(Vector3.right);
+            Move(Vector3.right, 0f);
         }
     }
 
-    void Move(Vector3 direction)
+    void Move(Vector3 direction, float look)
     {
         transform.Translate(direction * PlayerSpeed * Time.deltaTime);
+        //child.transform.rotation = Quaternion.Euler(0, look, 0);
     }
+
 
     public void RotatePlayer()
     {
