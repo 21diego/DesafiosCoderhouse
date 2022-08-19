@@ -19,6 +19,10 @@ public class PlayerCollider : MonoBehaviour
         {
             Debug.Log(other.gameObject.GetComponent<Portal>());
         }
+        if(other.gameObject.CompareTag("CrystalMagic" )){
+            Debug.Log("Poder misterioso otorgado");
+            Destroy(other.gameObject);
+        }
     }
 
     private void OnTriggerExit(Collider other)
