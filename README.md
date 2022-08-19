@@ -9,6 +9,6 @@
 |Desafio Complementario Ingenieria reversa | 📦 Entregado | ✅ Aprobado|
 |Desafio #4 Disparos Temporizados | 📦 Entregado | ✅ Aprobado|
 |Desafio #5 Sistema Follow Camara | 📦 Entregado | ✅ Aprobado |
-|Desafio #6 Escena con Vectores | 📦 Entregado | 🕑Pendiente |
-|Desafio #7 Colliders aplicados | 🕑Pendiente | 🕑Pendiente |
-|Desafio #8 Texturado e iluminacion | 🕑Pendiente | 🕑Pendiente |
+|Desafio #6 Escena con Vectores | 📦 Entregado | ✅ Aprobado |
+|Desafio #7 Colliders aplicados | 📦 Entregado | ✅ Aprobado |
+|Desafio #8 Texturado e iluminacion | 📦 Entregado | 🕑Pendiente |
