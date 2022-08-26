@@ -31,7 +31,6 @@ public class Bullet : MonoBehaviour
 
     void Move()
     {
-        //transform.position += this.direction * this.speed * Time.deltaTime;
         transform.Translate(this.direction * this.speed * Time.deltaTime);
     }
 

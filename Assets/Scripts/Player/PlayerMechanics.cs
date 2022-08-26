@@ -4,21 +4,26 @@ using UnityEngine;
 
 public class PlayerMechanics : MonoBehaviour
 {
-    public int actualHealth;
-    public int maxHealth;
-    public float speed;
-    public Vector3 direction;
-    public int damage;
-    public int heal;
+    [SerializeField] int actualHealth;
+    [SerializeField] int maxHealth;
+    [SerializeField] float speed;
+    [SerializeField] Vector3 direction;
+    [SerializeField] int damage;
+    [SerializeField] int heal;
+
+    public int ActualHealth { get => actualHealth; set => actualHealth = value; }
+
     // Start is called before the first frame update
     void Start()
     {
-        this.actualHealth = 10;
-        this.maxHealth = 30;
+        this.actualHealth = 100;
+        this.maxHealth = 100;
         this.speed = 10f;
         this.direction = new Vector3(0f, 0f, 0f);
         this.damage = 0;
         this.heal = 0;
+
+        GameManager.instance.HealthPalyer = actualHealth;
     }
 
     // Update is called once per frame

@@ -23,6 +23,11 @@ public class PlayerCollider : MonoBehaviour
             Debug.Log("Poder misterioso otorgado");
             Destroy(other.gameObject);
         }
+
+        if(other.gameObject.CompareTag("Bullet" )){
+            Debug.Log("Poder misterioso otorgado");
+            GameManager.instance.HealthPalyer -= other.gameObject.GetComponent<SimpleBulletBehaviour>().Damage;
+        }
     }
 
     private void OnTriggerExit(Collider other)
