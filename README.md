@@ -10,5 +10,6 @@
 |Desafio #4 Disparos Temporizados | 📦 Entregado | ✅ Aprobado|
 |Desafio #5 Sistema Follow Camara | 📦 Entregado | ✅ Aprobado |
 |Desafio #6 Escena con Vectores | 📦 Entregado | ✅ Aprobado |
-|Desafio #7 Colliders aplicados | 📦 Entregado | ✅ Aprobado |
-|Desafio #8 Texturado e iluminacion | 📦 Entregado | 🕑Pendiente |
+|Desafio #7 Colliders aplicados | 📦 Entregado  | ✅ Aprobado |
+|Desafio #8 Texturado e iluminacion | 📦 Entregado | ✅ Aprobado |
+|Desafio #9 Variables globares y Raycast | 📦 Entregado | 🕑Pendiente |
