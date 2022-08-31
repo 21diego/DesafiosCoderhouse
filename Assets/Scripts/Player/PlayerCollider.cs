@@ -15,18 +15,24 @@ public class PlayerCollider : MonoBehaviour
     void OnCollisionEnter(Collision other)
     {
         Debug.Log("Estoy chocando con " + other.gameObject.name);
-        if(other.gameObject.CompareTag("Portal"))
+        if(other.gameObject.CompareTag( "Portal" ))
         {
             Debug.Log(other.gameObject.GetComponent<Portal>());
         }
-        if(other.gameObject.CompareTag("CrystalMagic" )){
+        if(other.gameObject.CompareTag( "CrystalMagic" )){
             Debug.Log("Poder misterioso otorgado");
             Destroy(other.gameObject);
         }
 
-        if(other.gameObject.CompareTag("Bullet" )){
-            Debug.Log("Poder misterioso otorgado");
-            GameManager.instance.HealthPalyer -= other.gameObject.GetComponent<SimpleBulletBehaviour>().Damage;
+        if(other.gameObject.CompareTag( "Bullet" )){
+            int damage = other.gameObject.GetComponent<SimpleBulletBehaviour>().Damage;
+            GameManager.instance.UpdateHealth( -damage );
+            gameObject.GetComponent<PlayerMechanics>().Damage(damage);
+        }
+
+        if(other.gameObject.CompareTag("Fruit")){
+            gameObject.GetComponent<PlayerInventory>().AddItem(other.gameObject.transform.GetChild(0).gameObject.tag);
+            Destroy(other.gameObject);
         }
     }
 

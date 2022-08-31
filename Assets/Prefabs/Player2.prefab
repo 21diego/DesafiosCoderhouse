@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8704277108790290540}
   - component: {fileID: 8704277108790290543}
   - component: {fileID: 2108566848158125543}
+  - component: {fileID: 8040628059957698616}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player
@@ -112,6 +113,18 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 0}
   damage: 0
   heal: 0
+--- !u!114 &8040628059957698616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8704277108790290513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fc8c0d76eed57749be78c1950a1e1f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8704277108058162090
 PrefabInstance:
   m_ObjectHideFlags: 0

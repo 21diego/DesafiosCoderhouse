@@ -30,13 +30,24 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        scoreText.text = "SCORE: " + score;
+        healthText.text = "HEALTH: " + healthPalyer;
     }
 
     // Update is called once per frame
     void Update()
     {
-        scoreText.text = "SCORE: " + score;
-        healthText.text = "HEALTH: " + healthPalyer;
+
+    }
+
+    public void UpdateScore(int points)
+    {
+        Score += points;
+        scoreText.text = "SCORE: " + Score;
+    }
+    public void UpdateHealth(int heal)
+    {
+        HealthPalyer += heal;
+        healthText.text = "HEALTH: " + HealthPalyer;
     }
 }

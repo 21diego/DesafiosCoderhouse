@@ -31,9 +31,9 @@ public class PlayerMechanics : MonoBehaviour
     {
         Movement();
 
-        this.Heal(this.heal);
+        //this.Heal(this.heal);
 
-        this.Damage(this.damage);
+        //this.Damage(this.damage);
     }
 
     // Este metodo se encarga de mover a nuestro jugador
@@ -46,7 +46,7 @@ public class PlayerMechanics : MonoBehaviour
     // En caso de que su salud actual sea superior a la maxima no sanara
     // En caso de que sea menor que 0, el jugador estara muerto y se necesitara
     // la resucitacion de Sage :D
-    private void Heal(int lifeToHeal)
+    public void Heal(int lifeToHeal)
     {
         if (!(this.actualHealth < this.maxHealth))
         {
@@ -64,7 +64,7 @@ public class PlayerMechanics : MonoBehaviour
 
     // Este mettodo se encarfa de quitar vida al jugador
     // En caso de que su vida sea igual o menor a 0, ya no se descontara vida al jugador
-    private void Damage(int damageToReceive)
+    public void Damage(int damageToReceive)
     {
         if (this.actualHealth <= 0)
         {

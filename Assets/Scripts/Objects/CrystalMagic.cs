@@ -11,7 +11,7 @@ public class CrystalMagic : MonoBehaviour
     private void OnCollisionEnter(Collision other) 
     {
         if (other.gameObject.CompareTag("Player")){
-            GameManager.instance.Score += points;
+            GameManager.instance.UpdateScore(points);
         }
     }
 }

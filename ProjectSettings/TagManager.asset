@@ -7,6 +7,11 @@ TagManager:
   - Portal
   - CrystalMagic
   - Bullet
+  - Fruit
+  - Apple
+  - Banana
+  - Cherries
+  - Pear
   layers:
   - Default
   - TransparentFX
