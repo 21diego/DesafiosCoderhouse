@@ -12,4 +12,5 @@
 |Desafio #6 Escena con Vectores | 📦 Entregado | ✅ Aprobado |
 |Desafio #7 Colliders aplicados | 📦 Entregado  | ✅ Aprobado |
 |Desafio #8 Texturado e iluminacion | 📦 Entregado | ✅ Aprobado |
-|Desafio #9 Variables globares y Raycast | 📦 Entregado | 🕑Pendiente |
+|Desafio #9 Variables globares y Raycast | 📦 Entregado | ✅ Aprobado |
+|Desafio #10 Reccorriendo TDA | 📦 Entregado | 🕑Pendiente |
