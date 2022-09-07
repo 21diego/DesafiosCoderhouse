@@ -14,13 +14,13 @@ public class PlayerCollider : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        Debug.Log("Estoy chocando con " + other.gameObject.name);
+        //Debug.Log("Estoy chocando con " + other.gameObject.name);
         if(other.gameObject.CompareTag( "Portal" ))
         {
             Debug.Log(other.gameObject.GetComponent<Portal>());
         }
         if(other.gameObject.CompareTag( "CrystalMagic" )){
-            Debug.Log("Poder misterioso otorgado");
+            //Debug.Log("Poder misterioso otorgado");
             Destroy(other.gameObject);
         }
 

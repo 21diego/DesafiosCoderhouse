@@ -9,7 +9,6 @@ public class PlayerMechanics : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] Vector3 direction;
     [SerializeField] int damage;
-    [SerializeField] int heal;
 
     public int ActualHealth { get => actualHealth; set => actualHealth = value; }
 
@@ -21,7 +20,6 @@ public class PlayerMechanics : MonoBehaviour
         this.speed = 10f;
         this.direction = new Vector3(0f, 0f, 0f);
         this.damage = 0;
-        this.heal = 0;
 
         GameManager.instance.HealthPalyer = actualHealth;
     }

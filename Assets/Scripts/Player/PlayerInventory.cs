@@ -13,7 +13,6 @@ public class PlayerInventory : MonoBehaviour
 
     public void AddItem(string item)
     {
-        Debug.Log(item);
         if (itemsPlayer.ContainsKey(item))
         {
             int cantidad = itemsPlayer[item];
@@ -25,7 +24,8 @@ public class PlayerInventory : MonoBehaviour
             itemsPlayer[item] = 1;
         }
 
-        ConsoleOutput();
+        //ConsoleOutput();
+        HUDManager.SetInventoryItem(item, itemsPlayer[item]);
     }
 
     void ConsoleOutput()
