@@ -13,4 +13,5 @@
 |Desafio #7 Colliders aplicados | 📦 Entregado  | ✅ Aprobado |
 |Desafio #8 Texturado e iluminacion | 📦 Entregado | ✅ Aprobado |
 |Desafio #9 Variables globares y Raycast | 📦 Entregado | ✅ Aprobado |
-|Desafio #10 Reccorriendo TDA | 📦 Entregado | 🕑Pendiente |
+|Desafio #10 Reccorriendo TDA | 📦 Entregado | ✅ Aprobado |
+|Desafio #11 Impelmentacion UI | 📦 Entregado | 🕑Pendiente |
