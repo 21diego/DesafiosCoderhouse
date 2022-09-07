@@ -26,8 +26,10 @@ public class PlayerCollider : MonoBehaviour
 
         if(other.gameObject.CompareTag( "Bullet" )){
             int damage = other.gameObject.GetComponent<SimpleBulletBehaviour>().Damage;
-            GameManager.instance.UpdateHealth( -damage );
-            gameObject.GetComponent<PlayerMechanics>().Damage(damage);
+            //GameManager.instance.UpdateHealth( -damage );
+            PlayerMechanics player = gameObject.GetComponent<PlayerMechanics>();
+            player.Damage(damage);
+            HUDManager.SetHPBar(player.ActualHealth);
         }
 
         if(other.gameObject.CompareTag("Fruit")){

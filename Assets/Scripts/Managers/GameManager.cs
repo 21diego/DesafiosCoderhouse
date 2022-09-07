@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         scoreText.text = "SCORE: " + score;
-        healthText.text = "HEALTH: " + healthPalyer;
+        //healthText.text = "HEALTH: " + healthPalyer;
     }
 
     // Update is called once per frame
