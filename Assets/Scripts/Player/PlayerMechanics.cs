@@ -4,24 +4,13 @@ using UnityEngine;
 
 public class PlayerMechanics : MonoBehaviour
 {
-    [SerializeField] int actualHealth;
-    [SerializeField] int maxHealth;
-    [SerializeField] float speed;
-    [SerializeField] Vector3 direction;
-    [SerializeField] int damage;
-
-    public int ActualHealth { get => actualHealth; set => actualHealth = value; }
+    [SerializeField] PlayerData playerData;
 
     // Start is called before the first frame update
     void Start()
     {
-        this.actualHealth = 100;
-        this.maxHealth = 100;
-        this.speed = 10f;
-        this.direction = new Vector3(0f, 0f, 0f);
-        this.damage = 0;
 
-        GameManager.instance.HealthPalyer = actualHealth;
+        GameManager.instance.HealthPalyer = playerData.ActualHealth;
     }
 
     // Update is called once per frame
@@ -37,7 +26,7 @@ public class PlayerMechanics : MonoBehaviour
     // Este metodo se encarga de mover a nuestro jugador
     private void Movement()
     {
-        transform.position += this.direction * this.speed * Time.deltaTime;
+        transform.position += playerData.Direction * playerData.Speed * Time.deltaTime;
     }
 
     // Este metodo se encarga de sanar la vida del jugador
@@ -46,17 +35,17 @@ public class PlayerMechanics : MonoBehaviour
     // la resucitacion de Sage :D
     public void Heal(int lifeToHeal)
     {
-        if (!(this.actualHealth < this.maxHealth))
+        if (!(playerData.ActualHealth < playerData.MaxHealth))
         {
-            Debug.Log("El player supera la salud maxima: " + this.actualHealth);
+            Debug.Log("El player supera la salud maxima: " + playerData.ActualHealth);
         }
-        else if (this.actualHealth <= 0)
+        else if (playerData.ActualHealth <= 0)
         {
             Debug.Log("El jugador ha muerto :(");
         }
         else
         {
-            this.actualHealth += lifeToHeal;
+            playerData.ActualHealth += lifeToHeal;
         }
     }
 
@@ -64,16 +53,16 @@ public class PlayerMechanics : MonoBehaviour
     // En caso de que su vida sea igual o menor a 0, ya no se descontara vida al jugador
     public void Damage(int damageToReceive)
     {
-        if (this.actualHealth <= 0)
+        if (playerData.ActualHealth <= 0)
         {
             Debug.Log("Dejalo, el jugador ya esta muerto :(");
         }
         else
         {
-            this.actualHealth -= damageToReceive;
+            playerData.ActualHealth -= damageToReceive;
         }
 
-        HUDManager.SetHPBar(ActualHealth);
+        HUDManager.SetHPBar(playerData.ActualHealth);
     }
 
 }
