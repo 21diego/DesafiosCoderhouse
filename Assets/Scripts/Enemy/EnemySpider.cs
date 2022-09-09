@@ -15,5 +15,25 @@ public class EnemySpider : Enemy
         Movement();
     }
 
-    
+    private void OnCollisionStay(Collision other) {
+        if(other.gameObject.CompareTag("Player") && CanAttack){
+            Attack(other.gameObject.GetComponent<PlayerMechanics>());
+            CanAttack = false;
+            Invoke("delayAttack", 2f);
+            Debug.Log("Atacando a Player");
+        }
+    }
+
+    void delayAttack()
+    {
+        CanAttack = true;
+    }
+
+    protected override void Attack(PlayerMechanics player)
+    {
+        player.Damage(Damage);
+        HUDManager.SetHPBar(player.ActualHealth);
+    }
+
+
 }
