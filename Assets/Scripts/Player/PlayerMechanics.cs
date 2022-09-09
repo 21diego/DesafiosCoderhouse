@@ -72,6 +72,8 @@ public class PlayerMechanics : MonoBehaviour
         {
             this.actualHealth -= damageToReceive;
         }
+
+        HUDManager.SetHPBar(ActualHealth);
     }
 
 }

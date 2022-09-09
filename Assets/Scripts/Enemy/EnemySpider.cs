@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class EnemySpider : Enemy
 {
+    [SerializeField] int poisonDamage;
+    [SerializeField] int ticksPoison;
+    private int ticks;
+    private PlayerMechanics player;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -13,11 +18,19 @@ public class EnemySpider : Enemy
     void Update()
     {
         Movement();
+
+        if(ticks == 0){
+            CancelInvoke("delayPoisonDamage");
+            ticks = ticksPoison;
+        }
     }
 
-    private void OnCollisionStay(Collision other) {
-        if(other.gameObject.CompareTag("Player") && CanAttack){
-            Attack(other.gameObject.GetComponent<PlayerMechanics>());
+    private void OnCollisionStay(Collision other)
+    {
+        if (other.gameObject.CompareTag("Player") && CanAttack)
+        {
+            player = other.gameObject.GetComponent<PlayerMechanics>();
+            Attack();
             CanAttack = false;
             Invoke("delayAttack", 2f);
             Debug.Log("Atacando a Player");
@@ -29,11 +42,19 @@ public class EnemySpider : Enemy
         CanAttack = true;
     }
 
-    protected override void Attack(PlayerMechanics player)
+    protected override void Attack()
     {
         player.Damage(Damage);
-        HUDManager.SetHPBar(player.ActualHealth);
+        InvokeRepeating("delayPoisonDamage", 0.5f, 0.5f);
     }
+
+    void delayPoisonDamage()
+    {
+        player.Damage(poisonDamage);
+        ticks--;
+        
+    }
+
 
 
 }

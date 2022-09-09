@@ -30,7 +30,7 @@ public abstract class Enemy : MonoBehaviour
         LookAtPlayer();
     }
 
-    protected virtual void Attack(PlayerMechanics player) { }
+    protected virtual void Attack() { }
 
     protected void LookAtPlayer()
     {

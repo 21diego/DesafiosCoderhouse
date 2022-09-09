@@ -29,7 +29,7 @@ public class PlayerCollider : MonoBehaviour
             //GameManager.instance.UpdateHealth( -damage );
             PlayerMechanics player = gameObject.GetComponent<PlayerMechanics>();
             player.Damage(damage);
-            HUDManager.SetHPBar(player.ActualHealth);
+            //HUDManager.SetHPBar(player.ActualHealth);
         }
 
         if(other.gameObject.CompareTag("Fruit")){
