@@ -44,6 +44,7 @@ public class EnemySpider : Enemy
 
     protected override void Attack()
     {
+        
         player.Damage(enemyData.Damage);
         InvokeRepeating("delayPoisonDamage", 0.5f, 0.5f);
     }

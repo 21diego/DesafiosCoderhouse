@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ad8bac0870c0194da010b620707630f, type: 3}
   m_Name: SpiderData
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 10
   health: 100
   speedMovement: 2

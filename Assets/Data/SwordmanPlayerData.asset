@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0631c21c594e074bbdf9c3b2443e881, type: 3}
   m_Name: SwordmanPlayerData
   m_EditorClassIdentifier: 
-  actualHealth: 70
+  actualHealth: 46
   maxHealth: 100
   speed: 10
   direction: {x: 0, y: 0, z: 0}

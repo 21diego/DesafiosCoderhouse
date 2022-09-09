@@ -9,7 +9,7 @@ public class PlayerMechanics : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        playerData.ActualHealth = playerData.MaxHealth;
         GameManager.instance.HealthPalyer = playerData.ActualHealth;
     }
 
