@@ -15,3 +15,4 @@
 |Desafio #9 Variables globares y Raycast | 📦 Entregado | ✅ Aprobado |
 |Desafio #10 Reccorriendo TDA | 📦 Entregado | ✅ Aprobado |
 |Desafio #11 Impelmentacion UI | 📦 Entregado | 🕑Pendiente |
+|Desafio #12 Herencia y Scriptable objects | 📦 Entregado | 🕑Pendiente |
