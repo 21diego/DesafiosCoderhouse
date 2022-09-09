@@ -39,6 +39,7 @@ public class EnemyFury : Enemy
         if (other.gameObject.CompareTag("Player") && CanAttack)
         {
             player = other.gameObject.GetComponent<PlayerMechanics>();
+            GetComponentInChildren<Animator>(true).SetTrigger("Attack 01");
             Attack(player);
             CanAttack = false;
             Invoke("delayAttack", 2f);

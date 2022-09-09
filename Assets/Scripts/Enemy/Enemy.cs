@@ -29,11 +29,18 @@ public class Enemy : MonoBehaviour
     }
 
     protected virtual void Attack() {}
-    protected virtual void Attack(PlayerMechanics player)
+    protected virtual void  Attack(PlayerMechanics player)
     {
-        player.Damage(enemyData.Damage);
+        StartCoroutine(AttackWithDelay(player));
+        
     }
-
+    
+    IEnumerator AttackWithDelay(PlayerMechanics player){
+        //Espera 1 segundo a que termine la animacion de ataque
+        yield return new WaitForSeconds(1);
+        player.Damage(enemyData.Damage);
+        yield return null;
+    }
     protected void LookAtPlayer()
     {
         // Determino la nueva rotacion
