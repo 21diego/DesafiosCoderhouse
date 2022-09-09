@@ -37,10 +37,6 @@ public class EnemySpider : Enemy
         }
     }
 
-    void delayAttack()
-    {
-        CanAttack = true;
-    }
 
     protected override void Attack()
     {

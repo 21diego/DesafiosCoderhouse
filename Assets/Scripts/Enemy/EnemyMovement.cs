@@ -13,7 +13,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] EnemyMoveTypes EnemyMoveType;
 
     //Guardamos una referencia al transform del player para movernos en su dirección.
-    [SerializeField] Transform playerTransform;
+    [SerializeField] protected Transform playerTransform;
 
     void Start()
     {
