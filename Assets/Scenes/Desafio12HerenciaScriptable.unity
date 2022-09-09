@@ -9081,9 +9081,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0c6cd2a13de6f34194fbbb580af2265, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 15
-  health: 50
-  speedMovement: 2
+  enemyData: {fileID: 11400000, guid: 878a10cb0b3f80149b0d3ae910c2f9dc, type: 2}
   playerTransform: {fileID: 1618976800}
   poisonDamage: 3
   ticksPoison: 5

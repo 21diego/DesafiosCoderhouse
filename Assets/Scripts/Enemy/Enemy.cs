@@ -4,14 +4,12 @@ using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour
 {
-    [SerializeField] int damage;
-    [SerializeField] int health;
-    [SerializeField][Range(1f, 5f)] float speedMovement = 2f;
+
+    [SerializeField] protected EnemyData enemyData;
     [SerializeField] Transform playerTransform;
     private bool canAttack = true;
 
     protected bool CanAttack { get => canAttack; set => canAttack = value; }
-    protected int Damage { get => damage; set => damage = value; }
 
     // Start is called before the first frame update
     void Start()
