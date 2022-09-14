@@ -59,6 +59,7 @@ public class PlayerMechanics : MonoBehaviour
     {
         playerData.ActualHealth -= damageToReceive;
         HUDManager.SetHPBar(playerData.ActualHealth);
+        //GetComponentInChildren<Animator>(true).SetTrigger("GETHIT");
         
         if (playerData.ActualHealth <= 0) OnDead.Invoke();
         
