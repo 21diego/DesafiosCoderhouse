@@ -16,4 +16,4 @@
 |Desafio #10 Reccorriendo TDA | 📦 Entregado | ✅ Aprobado |
 |Desafio #11 Impelmentacion UI | 📦 Entregado | ✅ Aprobado |
 |Desafio #12 Herencia y Scriptable objects | 📦 Entregado | ✅ Aprobado |
-|Desafio #12 Manejo de eventos | 📦 Entregado | 🕑Pendiente |
+|Desafio #13 Manejo de eventos | 📦 Entregado | 🕑Pendiente |
