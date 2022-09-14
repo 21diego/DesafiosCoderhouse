@@ -13,6 +13,7 @@ public class HUDManager : MonoBehaviour
     [SerializeField] private Slider hpBar;
     [SerializeField] private GameObject panelInventory;
     [SerializeField] private GameObject gameoverPannel;
+    [SerializeField] private GameObject skillBar;
     private Dictionary<string, Color32> statusHPColor;
     private Dictionary<string, TextMeshProUGUI> itemsCount;
     private Image fillHPImage;
@@ -85,4 +86,13 @@ public class HUDManager : MonoBehaviour
         instance.gameoverPannel.SetActive(true);
         OnGameOver?.Invoke();
     }
+
+    public static void UpdateSkillUse(float high, float posy, string typeSkill)
+    {
+        RectTransform rt = instance.skillBar.transform.Find(typeSkill)?.GetChild(0).transform.GetComponent<RectTransform>();
+        rt.sizeDelta = new Vector2(rt.sizeDelta.x,high);
+        rt.anchoredPosition = new Vector2(rt.anchoredPosition.x, rt.anchoredPosition.y + posy/2);
+    }
+
+
 }

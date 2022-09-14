@@ -6,14 +6,11 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] int score = 0;
-    int healthPalyer = 0;
     [SerializeField] TextMeshProUGUI scoreText;
-    [SerializeField] TextMeshProUGUI healthText;
 
     public static GameManager instance;
 
     public int Score { get => score; set => score = value; }
-    public int HealthPalyer { get => healthPalyer; set => healthPalyer = value; }
 
     private void Awake()
     {
@@ -45,10 +42,6 @@ public class GameManager : MonoBehaviour
         Score += points;
         scoreText.text = "SCORE: " + Score;
     }
-    public void UpdateHealth(int heal)
-    {
-        HealthPalyer += heal;
-        healthText.text = "HEALTH: " + HealthPalyer;
-    }
+
 
 }

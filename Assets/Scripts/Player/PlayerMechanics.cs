@@ -7,23 +7,28 @@ using System;
 public class PlayerMechanics : MonoBehaviour
 {
     [SerializeField] PlayerData playerData;
+    [SerializeField] private int pointsToUltimate = 3;
 
     public event Action OnDead;
     public UnityEvent OnUseUltimate;
-    private bool canUseUltimate = true;
+
+    private bool canUseUltimate = false;
+    private int pointsUltimate = 0;
+    private float highDefault = 50f;
     // Start is called before the first frame update
-    private void Awake() {
+    private void Awake()
+    {
     }
     void Start()
     {
         playerData.ActualHealth = playerData.MaxHealth;
-        GameManager.instance.HealthPalyer = playerData.ActualHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && canUseUltimate) {
+        if (Input.GetKeyDown(KeyCode.Space) && canUseUltimate)
+        {
             GetComponentInChildren<Animator>(true).SetTrigger("ULTIMATE");
             OnUseUltimate?.Invoke();
         }
@@ -56,9 +61,21 @@ public class PlayerMechanics : MonoBehaviour
         playerData.ActualHealth -= damageToReceive;
         HUDManager.SetHPBar(playerData.ActualHealth);
         //GetComponentInChildren<Animator>(true).SetTrigger("GETHIT");
-        
+
         if (playerData.ActualHealth <= 0) OnDead?.Invoke();
-        
+
+    }
+
+    public void RechargeUltimate()
+    {
+        pointsUltimate++;
+        float newHigh = highDefault - (highDefault/pointsToUltimate) * pointsUltimate;
+        float newPosy = (highDefault/pointsToUltimate);
+        HUDManager.UpdateSkillUse(newHigh, newPosy, "Ultimate");
+        if (pointsUltimate == pointsToUltimate){
+            canUseUltimate = true;
+            pointsUltimate = 0;
+        }
     }
 
 

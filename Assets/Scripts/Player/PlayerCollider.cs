@@ -23,6 +23,8 @@ public class PlayerCollider : MonoBehaviour
         }
         if(other.gameObject.CompareTag( "CrystalMagic" )){
             //Debug.Log("Poder misterioso otorgado");
+            PlayerMechanics player = gameObject.GetComponent<PlayerMechanics>();
+            player.RechargeUltimate();
             Destroy(other.gameObject);
         }
 
