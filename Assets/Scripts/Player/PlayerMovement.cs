@@ -17,9 +17,11 @@ public class PlayerMovement : MonoBehaviour
     Transform child;
     private bool canMove = true;
 
+
     private void Awake()
     {
-        FindObjectOfType<HUDManager>().OnGameOver += StopMovement;
+        FindObjectOfType<HUDManager>().OnGameOver += Die;
+        GetComponent<PlayerMechanics>().OnUseUltimate.AddListener(StopMovement);
     }
 
     // Start is called before the first frame update
@@ -83,7 +85,20 @@ public class PlayerMovement : MonoBehaviour
     void StopMovement()
     {
         canMove = false;
+        Invoke("CanMove", 2f);
+    }
+
+    void CanMove()
+    {
+        canMove = true;
+    }
+
+    void Die()
+    {
+        canMove = false;
         GetComponentInChildren<Animator>(true).SetTrigger("DEAD");
     }
+
+
 
 }

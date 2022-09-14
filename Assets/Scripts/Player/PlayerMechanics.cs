@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using System;
@@ -31,6 +29,8 @@ public class PlayerMechanics : MonoBehaviour
         {
             GetComponentInChildren<Animator>(true).SetTrigger("ULTIMATE");
             OnUseUltimate?.Invoke();
+            ResetUltimate();
+
         }
     }
 
@@ -69,13 +69,23 @@ public class PlayerMechanics : MonoBehaviour
     public void RechargeUltimate()
     {
         pointsUltimate++;
-        float newHigh = highDefault - (highDefault/pointsToUltimate) * pointsUltimate;
-        float newPosy = (highDefault/pointsToUltimate);
-        HUDManager.UpdateSkillUse(newHigh, newPosy, "Ultimate");
-        if (pointsUltimate == pointsToUltimate){
-            canUseUltimate = true;
-            pointsUltimate = 0;
+        if (pointsUltimate <= 3)
+        {
+            float newHigh = highDefault - (highDefault / pointsToUltimate) * pointsUltimate;
+            float newPosy = (highDefault / pointsToUltimate);
+            HUDManager.UpdateSkillUse(newHigh, newPosy, "Ultimate");
+            if (pointsUltimate == pointsToUltimate)
+            {
+                canUseUltimate = true;
+            }
         }
+    }
+
+    void ResetUltimate()
+    {
+        HUDManager.UpdateSkillUse(highDefault, -highDefault, "Ultimate");
+        canUseUltimate = false;
+        pointsUltimate = 0;
     }
 
 
