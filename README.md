@@ -14,5 +14,6 @@
 |Desafio #8 Texturado e iluminacion | 📦 Entregado | ✅ Aprobado |
 |Desafio #9 Variables globares y Raycast | 📦 Entregado | ✅ Aprobado |
 |Desafio #10 Reccorriendo TDA | 📦 Entregado | ✅ Aprobado |
-|Desafio #11 Impelmentacion UI | 📦 Entregado | 🕑Pendiente |
-|Desafio #12 Herencia y Scriptable objects | 📦 Entregado | 🕑Pendiente |
+|Desafio #11 Impelmentacion UI | 📦 Entregado | ✅ Aprobado |
+|Desafio #12 Herencia y Scriptable objects | 📦 Entregado | ✅ Aprobado |
+|Desafio #12 Manejo de eventos | 📦 Entregado | 🕑Pendiente |
