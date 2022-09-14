@@ -11,10 +11,8 @@ public class Enemy : MonoBehaviour
 
     protected bool CanAttack { get => canAttack; set => canAttack = value; }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
+    private void Awake() {
+        FindObjectOfType<HUDManager>().OnGameOver += EndGame;
     }
 
     // Update is called once per frame
@@ -52,5 +50,9 @@ public class Enemy : MonoBehaviour
     {
         Debug.Log("delayAttack");
         CanAttack = true;
+    }
+
+    void EndGame () {
+        Destroy(gameObject);
     }
 }

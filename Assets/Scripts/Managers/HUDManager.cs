@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class HUDManager : MonoBehaviour
 {
+    public event Action OnGameOver;
     private static HUDManager instance;
     public static HUDManager Instance { get => instance; }
     [SerializeField] private Slider hpBar;
     [SerializeField] private GameObject panelInventory;
+    [SerializeField] private GameObject gameoverPannel;
     private Dictionary<string, Color32> statusHPColor;
     private Dictionary<string, TextMeshProUGUI> itemsCount;
     private Image fillHPImage;
@@ -19,6 +22,7 @@ public class HUDManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            FindObjectOfType<PlayerMechanics>().OnDead += GameOver;
         }
         else
         {
@@ -70,6 +74,13 @@ public class HUDManager : MonoBehaviour
     void ConsoleOutput()
     {
         foreach (KeyValuePair<string, TextMeshProUGUI> kvp in itemsCount)
-            Debug.Log("Key = "+ kvp.Key + " --> Value = " + kvp.Value);
+            Debug.Log("Key = " + kvp.Key + " --> Value = " + kvp.Value);
+    }
+
+    public void GameOver()
+    {
+        Debug.Log("Llamando a panel de game over");
+        gameoverPannel.SetActive(true);
+        OnGameOver.Invoke();
     }
 }

@@ -13,7 +13,6 @@ public class InventoryChestManager : MonoBehaviour
     }
     void Start()
     {
-        Debug.Log(items.Capacity);
     }
 
     // Update is called once per frame

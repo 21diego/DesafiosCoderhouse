@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerCollider : MonoBehaviour
 {
     [SerializeField] bool alreadyShrunk = false;
+
 
     // Start is called before the first frame update
     void Start()

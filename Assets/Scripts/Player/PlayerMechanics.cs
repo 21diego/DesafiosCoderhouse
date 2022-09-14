@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PlayerMechanics : MonoBehaviour
 {
     [SerializeField] PlayerData playerData;
 
+    public event Action OnDead;
     // Start is called before the first frame update
+    private void Awake() {
+    }
     void Start()
     {
         playerData.ActualHealth = playerData.MaxHealth;
@@ -53,16 +57,12 @@ public class PlayerMechanics : MonoBehaviour
     // En caso de que su vida sea igual o menor a 0, ya no se descontara vida al jugador
     public void Damage(int damageToReceive)
     {
-        if (playerData.ActualHealth <= 0)
-        {
-            Debug.Log("Dejalo, el jugador ya esta muerto :(");
-        }
-        else
-        {
-            playerData.ActualHealth -= damageToReceive;
-        }
-
+        playerData.ActualHealth -= damageToReceive;
         HUDManager.SetHPBar(playerData.ActualHealth);
+        
+        if (playerData.ActualHealth <= 0) OnDead.Invoke();
+        
     }
+
 
 }

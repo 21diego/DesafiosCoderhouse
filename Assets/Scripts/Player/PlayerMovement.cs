@@ -15,6 +15,12 @@ public class PlayerMovement : MonoBehaviour
 
     private float cameraAxisX = 0f;
     Transform child;
+    private bool canMove = true;
+
+    private void Awake()
+    {
+        FindObjectOfType<HUDManager>().OnGameOver += StopMovement;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -29,26 +35,30 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        bool forward = Input.GetKey(KeyCode.W);
-        bool back = Input.GetKey(KeyCode.S);
-        bool left = Input.GetKey(KeyCode.A);
-        bool right = Input.GetKey(KeyCode.D);
-        
-        // Solo adelante
-        if (forward && !left && !right) Move(Vector3.forward, 0f);
-        if (forward && left) Move(Vector3.forward + Vector3.left, 315f);
-        if (forward && right) Move(Vector3.forward + Vector3.right, 45f);
+        if (canMove)
+        {
+            bool forward = Input.GetKey(KeyCode.W);
+            bool back = Input.GetKey(KeyCode.S);
+            bool left = Input.GetKey(KeyCode.A);
+            bool right = Input.GetKey(KeyCode.D);
 
-        if (back && !left && !right) Move(Vector3.back, 180f);
-        if (back && left) Move(Vector3.back + Vector3.left, 225f);
-        if (back && right) Move(Vector3.back + Vector3.right, 135f);
+            // Solo adelante
+            if (forward && !left && !right) Move(Vector3.forward, 0f);
+            if (forward && left) Move(Vector3.forward + Vector3.left, 315f);
+            if (forward && right) Move(Vector3.forward + Vector3.right, 45f);
 
-        if (left && !forward && !back) Move(Vector3.left, 270f);
-        if (right && !forward && !back) Move(Vector3.right, 90f);
+            if (back && !left && !right) Move(Vector3.back, 180f);
+            if (back && left) Move(Vector3.back + Vector3.left, 225f);
+            if (back && right) Move(Vector3.back + Vector3.right, 135f);
 
-        if ( !forward && !back && !left && !right) GetComponentInChildren<Animator>(true).SetBool("WALKING", false);
+            if (left && !forward && !back) Move(Vector3.left, 270f);
+            if (right && !forward && !back) Move(Vector3.right, 90f);
 
+            if (!forward && !back && !left && !right)
+            {
+                GetComponentInChildren<Animator>(true).SetBool("WALKING", false);
+            }
+        }
     }
 
     void Move(Vector3 direction, float look)
@@ -68,6 +78,12 @@ public class PlayerMovement : MonoBehaviour
 
         // Aplico Lerp para que el movimiento sea gradual
         transform.rotation = Quaternion.Lerp(transform.rotation, newRotation, 10f * Time.deltaTime);
+    }
+
+    void StopMovement()
+    {
+        canMove = false;
+        GetComponentInChildren<Animator>(true).SetTrigger("DEAD");
     }
 
 }
