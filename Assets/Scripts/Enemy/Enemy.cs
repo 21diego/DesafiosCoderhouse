@@ -11,8 +11,10 @@ public class Enemy : MonoBehaviour
 
     protected bool CanAttack { get => canAttack; set => canAttack = value; }
 
-    private void Awake() {
+    private void Awake()
+    {
         FindObjectOfType<HUDManager>().OnGameOver += EndGame;
+        FindObjectOfType<PlayerMechanics>().OnUseUltimate.AddListener(ToDie);
     }
 
     // Update is called once per frame
@@ -26,14 +28,15 @@ public class Enemy : MonoBehaviour
         LookAtPlayer();
     }
 
-    protected virtual void Attack() {}
-    protected virtual void  Attack(PlayerMechanics player)
+    protected virtual void Attack() { }
+    protected virtual void Attack(PlayerMechanics player)
     {
         StartCoroutine(AttackWithDelay(player));
-        
+
     }
-    
-    IEnumerator AttackWithDelay(PlayerMechanics player){
+
+    IEnumerator AttackWithDelay(PlayerMechanics player)
+    {
         //Espera 1 segundo a que termine la animacion de ataque
         yield return new WaitForSeconds(1);
         player.Damage(enemyData.Damage);
@@ -52,7 +55,23 @@ public class Enemy : MonoBehaviour
         CanAttack = true;
     }
 
-    void EndGame () {
+    void EndGame()
+    {
         Destroy(gameObject);
+    }
+
+    void ToDie()
+    {
+        StartCoroutine(DieAnimationDelay());
+    }
+
+    IEnumerator DieAnimationDelay()
+    {
+        //Espera 1 segundo a que termine la animacion de ataque
+        yield return new WaitForSeconds(2);
+        GetComponentInChildren<Animator>(true).SetTrigger("DEAD");
+        yield return new WaitForSeconds(2);
+        Destroy(gameObject);
+        yield return null;
     }
 }

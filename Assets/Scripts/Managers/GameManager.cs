@@ -50,4 +50,5 @@ public class GameManager : MonoBehaviour
         HealthPalyer += heal;
         healthText.text = "HEALTH: " + HealthPalyer;
     }
+
 }

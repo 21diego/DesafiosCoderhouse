@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using System;
 
 public class PlayerMechanics : MonoBehaviour
@@ -8,6 +9,8 @@ public class PlayerMechanics : MonoBehaviour
     [SerializeField] PlayerData playerData;
 
     public event Action OnDead;
+    public UnityEvent OnUseUltimate;
+    private bool canUseUltimate = true;
     // Start is called before the first frame update
     private void Awake() {
     }
@@ -20,17 +23,10 @@ public class PlayerMechanics : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Movement();
-
-        //this.Heal(this.heal);
-
-        //this.Damage(this.damage);
-    }
-
-    // Este metodo se encarga de mover a nuestro jugador
-    private void Movement()
-    {
-        transform.position += playerData.Direction * playerData.Speed * Time.deltaTime;
+        if (Input.GetKeyDown(KeyCode.Space) && canUseUltimate) {
+            GetComponentInChildren<Animator>(true).SetTrigger("ULTIMATE");
+            OnUseUltimate?.Invoke();
+        }
     }
 
     // Este metodo se encarga de sanar la vida del jugador
@@ -61,7 +57,7 @@ public class PlayerMechanics : MonoBehaviour
         HUDManager.SetHPBar(playerData.ActualHealth);
         //GetComponentInChildren<Animator>(true).SetTrigger("GETHIT");
         
-        if (playerData.ActualHealth <= 0) OnDead.Invoke();
+        if (playerData.ActualHealth <= 0) OnDead?.Invoke();
         
     }
 

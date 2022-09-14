@@ -81,7 +81,8 @@ public class HUDManager : MonoBehaviour
     {
         Debug.Log("Llamando a panel de game over");
         instance.gameoverPannel.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "Score total: " + GameManager.instance.Score;
+        transform.Find("Score")?.gameObject.SetActive(false);
         instance.gameoverPannel.SetActive(true);
-        OnGameOver.Invoke();
+        OnGameOver?.Invoke();
     }
 }
