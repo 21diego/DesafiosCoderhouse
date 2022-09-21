@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
-public class GlobalVolumeManger : MonoBehaviour
+public class HealthFilter : MonoBehaviour
 {
     private PostProcessVolume globalVolume;
     Vignette healthFilter;
