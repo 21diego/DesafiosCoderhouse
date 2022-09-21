@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class EnemySpider : Enemy
 {
@@ -8,6 +9,7 @@ public class EnemySpider : Enemy
     [SerializeField] int ticksPoison;
     private int ticks;
     private PlayerMechanics player;
+    public event Action OnPoisoned;
     
     // Start is called before the first frame update
     void Start()
@@ -33,7 +35,6 @@ public class EnemySpider : Enemy
             Attack();
             CanAttack = false;
             Invoke("delayAttack", 2f);
-            Debug.Log("Atacando a Player");
         }
     }
 
@@ -42,12 +43,13 @@ public class EnemySpider : Enemy
     {
         
         player.Damage(enemyData.Damage);
-        InvokeRepeating("delayPoisonDamage", 0.5f, 0.5f);
+        InvokeRepeating("delayPoisonDamage", 1f, 1f);
     }
 
     void delayPoisonDamage()
     {
         player.Damage(poisonDamage);
+        OnPoisoned?.Invoke();
         ticks--;
         
     }
