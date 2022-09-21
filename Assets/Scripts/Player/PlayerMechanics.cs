@@ -8,6 +8,7 @@ public class PlayerMechanics : MonoBehaviour
     [SerializeField] private int pointsToUltimate = 3;
 
     public event Action OnDead;
+    public event Action OnLastLife;
     public UnityEvent OnUseUltimate;
 
     private bool canUseUltimate = false;
@@ -61,7 +62,7 @@ public class PlayerMechanics : MonoBehaviour
         playerData.ActualHealth -= damageToReceive;
         HUDManager.SetHPBar(playerData.ActualHealth);
         //GetComponentInChildren<Animator>(true).SetTrigger("GETHIT");
-
+        if (playerData.ActualHealth  <= 30) OnLastLife?.Invoke();
         if (playerData.ActualHealth <= 0) OnDead?.Invoke();
 
     }
